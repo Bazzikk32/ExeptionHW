@@ -27,23 +27,23 @@ public class Service {
            gender = data[5];
 
 
-        checkIfString(name);
-        checkIfString(family);
-        checkIfString(fatherName);
-        checkIfNumber(phoneNumberStr);
-        checkGender(gender);
-        //System.out.println(isValidDate(birtDay));
-        try {
-            isValidDate(birtDay);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+//        checkIfString(name);
+//        checkIfString(family);
+//        checkIfString(fatherName);
+//        checkIfNumber(phoneNumberStr);
+//        checkGender(gender);
+//        //System.out.println(isValidDate(birtDay));
+//        try {
+//            isValidDate(birtDay);
+//        } catch (Exception e) {
+//            throw new RuntimeException(e);
+//        }
 
-        //System.out.println(buildTheLine());
 
 
 
     }
+
 
     public void setPerson(String inputData) {
         person.setInputDataFromUser(inputData);

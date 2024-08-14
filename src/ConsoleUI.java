@@ -3,11 +3,13 @@ import java.util.Scanner;
 public class ConsoleUI {
     private Scanner scanner;
     private Service service;
+    private Checker checker;
     private boolean work = true;
 
     public ConsoleUI() {
         scanner = new Scanner(System.in);
         service = new Service();
+        checker = new Checker();
         work = true;
     }
 
@@ -22,6 +24,8 @@ public class ConsoleUI {
             String inputStr = scanner.nextLine();
             service.setPerson(inputStr);
             service.SplitDataFromPerson(inputStr);
+            checker.checkerFormats();
+
             service.saveToFile();
             finish();
         }
