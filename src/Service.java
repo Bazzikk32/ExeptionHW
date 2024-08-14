@@ -1,3 +1,4 @@
+import java.io.FileWriter;
 import java.io.IOError;
 import java.io.IOException;
 import java.util.regex.Matcher;
@@ -18,9 +19,9 @@ public class Service {
        if(data.length!=6) {
            throw new RuntimeException("Вы ввели некорректное количество данных!");
        }
-           name = data[0];
-           fatherName = data[1];
-           family = data[2];
+           name = data[1];
+           fatherName = data[2];
+           family = data[0];
            birtDay = data[3];
            phoneNumberStr = data[4];
            gender = data[5];
@@ -31,16 +32,14 @@ public class Service {
         checkIfString(fatherName);
         checkIfNumber(phoneNumberStr);
         checkGender(gender);
-        System.out.println(isValidDate(birtDay));
+        //System.out.println(isValidDate(birtDay));
         try {
             isValidDate(birtDay);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        //System.out.println(name + "\n" + fatherName + "\n" + family + "\n" + birtDay + "\n"
-         //       + phoneNumberStr + "\n" + gender + "\n" );
 
-        System.out.println(buildTheLine());
+        //System.out.println(buildTheLine());
 
 
 
@@ -51,6 +50,15 @@ public class Service {
     }
 
      public void saveToFile(){
+        String fileName = family + ".txt";
+        try(FileWriter fw = new FileWriter(fileName, true)){
+            fw.write(buildTheLine());
+            fw.flush();
+            System.out.println("\n");
+            System.out.println("Данные записаны в файл успешно!");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
      }
 
@@ -97,18 +105,20 @@ public class Service {
 
     public String buildTheLine() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Фамилия: ");
+        sb.append("Фамилия: <");
         sb.append(name);
-        sb.append(" Имя: ");
+        sb.append("> Имя: <");
         sb.append(fatherName);
-        sb.append(" Отчество: ");
+        sb.append("> Отчество: <");
         sb.append(family);
-        sb.append(" Дата рождения: ");
+        sb.append("> Дата рождения: <");
         sb.append(birtDay);
-        sb.append(" Номер телефона: ");
+        sb.append("> Номер телефона: <");
         sb.append(phoneNumberStr);
-        sb.append(" Пол: ");
+        sb.append("> Пол: <");
         sb.append(gender);
+        sb.append("> \n");
+        sb.append("\n");
         return sb.toString();
     }
 

@@ -13,14 +13,17 @@ public class ConsoleUI {
 
     public void Start(){
         while (work){
+            System.out.println("\n");
             System.out.println("Добрый день, приложение запущено...\n");
             System.out.println("Введите следующие данные разделяя их пробелом: \n" + "фамилия, имя, отчество\n" +
                     "дата _ рождения формата dd.mm.yyyy\n" +
                     "номер _ телефона - целое беззнаковое число\n" +
-                    "пол - символ латиницей f или m.");
+                    "пол - символ латиницей f или m\n");
             String inputStr = scanner.nextLine();
             service.setPerson(inputStr);
             service.SplitDataFromPerson(inputStr);
+            service.saveToFile();
+            finish();
         }
     }
 
