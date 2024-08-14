@@ -88,7 +88,7 @@ public class Service {
     public static boolean isValidDate(String birtDay)
     {
         //String regex = "^(1[0-2]|0[1-9]).(3[01]" + "|[12][0-9]|0[1-9]).[0-9]{4}$";
-        String regex = "^(3[01]|[12][0-9]|0[1-9])/(1[0-2]|0[1-9])/[0-9]{4}$";
+        String regex = "^(3[01]|[12][0-9]|0[1-9]).(1[0-2]|0[1-9]).[0-9]{4}$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher((CharSequence)birtDay);
         if (matcher.matches()){
@@ -103,11 +103,11 @@ public class Service {
     public String buildTheLine() {
         StringBuilder sb = new StringBuilder();
         sb.append("Фамилия: <");
-        sb.append(name);
-        sb.append("> Имя: <");
-        sb.append(fatherName);
-        sb.append("> Отчество: <");
         sb.append(family);
+        sb.append("> Имя: <");
+        sb.append(name);
+        sb.append("> Отчество: <");
+        sb.append(fatherName);
         sb.append("> Дата рождения: <");
         sb.append(birtDay);
         sb.append("> Номер телефона: <");
