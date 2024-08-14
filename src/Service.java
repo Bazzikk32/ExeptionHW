@@ -118,7 +118,6 @@ public class Service {
         sb.append("> Пол: <");
         sb.append(gender);
         sb.append("> \n");
-        sb.append("\n");
         return sb.toString();
     }
 
