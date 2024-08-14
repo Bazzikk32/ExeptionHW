@@ -25,23 +25,19 @@ public class Service {
            birtDay = data[3];
            phoneNumberStr = data[4];
            gender = data[5];
+    }
 
-
-//        checkIfString(name);
-//        checkIfString(family);
-//        checkIfString(fatherName);
-//        checkIfNumber(phoneNumberStr);
-//        checkGender(gender);
-//        //System.out.println(isValidDate(birtDay));
-//        try {
-//            isValidDate(birtDay);
-//        } catch (Exception e) {
-//            throw new RuntimeException(e);
-//        }
-
-
-
-
+    public void checkerFormat(){
+        checkIfString(name);
+        checkIfString(family);
+        checkIfString(fatherName);
+        checkIfNumber(phoneNumberStr);
+        checkGender(gender);
+        try {
+            isValidDate(birtDay);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
 
